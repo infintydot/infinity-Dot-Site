@@ -33,7 +33,7 @@ export default function Home() {
       <Portfolio />
 
       {/* 07. TESTIMONIALS / STATS */}
-      <SocialProof />
+      {/* <SocialProof /> */}
 
       {/* 08. CONTACT CTA */}
       <Contact />

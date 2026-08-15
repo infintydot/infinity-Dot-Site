@@ -18,7 +18,7 @@ export default function Contact() {
           <h2 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] tracking-tight">
             Let&apos;s build something{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent text-glow">
-              infinite.
+              infinity.
             </span>
           </h2>
         </Reveal>
