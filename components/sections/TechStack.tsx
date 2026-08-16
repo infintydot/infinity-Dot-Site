@@ -26,20 +26,20 @@ export default function TechStack() {
     if (!section || !orbit) return;
 
     const ctx = gsap.context(() => {
-      // Fade + scale the whole orbit in on scroll
+      // Fade + scale the inner orbit in on scroll
       gsap.fromTo(
         orbit,
         { opacity: 0, scale: 0.85 },
         {
           opacity: 1,
-          scale: 1,
+          scale: 1, // Scales up to 100% of its responsive parent wrapper
           duration: 1.2,
           ease: "power3.out",
           scrollTrigger: { trigger: section, start: "top 75%" },
         }
       );
 
-      // Continuous independent ring rotation, counter-rotating labels so text stays upright
+      // Continuous independent ring rotation, counter-rotating labels
       const rings = orbit.querySelectorAll<HTMLElement>("[data-ring]");
       rings.forEach((ring) => {
         const ringId = Number(ring.dataset.ring) as 1 | 2 | 3;
@@ -75,6 +75,8 @@ export default function TechStack() {
       className="relative w-full py-32 px-6 md:px-12 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        {/* Left Side: Typography */}
         <div className="lg:col-span-5 order-2 lg:order-1">
           <Reveal>
             <span className="text-secondary text-xs font-semibold tracking-[0.2em] uppercase">
@@ -94,49 +96,60 @@ export default function TechStack() {
           </Reveal>
         </div>
 
-        <div className="lg:col-span-7 order-1 lg:order-2 flex items-center justify-center py-12">
-          <div
-            ref={orbitRef}
-            className="relative w-[520px] h-[520px] max-w-full aspect-square flex items-center justify-center"
-          >
-            {/* center core */}
-            <div className="absolute w-20 h-20 rounded-full glass-panel flex items-center justify-center z-20">
-              <span className="text-2xl font-display font-bold text-white">
-                ∞
-              </span>
-            </div>
+        {/* Right Side: The Orbit */}
+        <div className="lg:col-span-7 order-1 lg:order-2 flex items-center justify-center py-12 w-full overflow-hidden">
+          
+          {/* 
+            THE FIX: Responsive Scaling Wrapper 
+            This scales the entire 520px orbit down to 60% on mobile, 85% on tablets, and 100% on desktop,
+            without interfering with GSAP's internal animations.
+          */}
+          <div className="transform scale-[0.6] sm:scale-[0.85] lg:scale-100 origin-center flex items-center justify-center">
+            
+            <div
+              ref={orbitRef}
+              className="relative w-[520px] h-[520px] flex items-center justify-center"
+            >
+              {/* center core */}
+              <div className="absolute w-20 h-20 rounded-full glass-panel flex items-center justify-center z-20">
+                <span className="text-2xl font-display font-bold text-white">
+                  ∞
+                </span>
+              </div>
 
-            {([1, 2, 3] as const).map((ringId) => {
-              const items = byRing(ringId);
-              const { radius, size } = RING_CONFIG[ringId];
-              return (
-                <div
-                  key={ringId}
-                  data-ring={ringId}
-                  className={`absolute rounded-full border border-white/10 ${size}`}
-                >
-                  {items.map((item, i) => {
-                    const angle = (360 / items.length) * i;
-                    return (
-                      <div
-                        key={item.name}
-                        data-chip
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                        style={{
-                          transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`,
-                        }}
-                      >
-                        <div data-chip-inner>
-                          <span className="whitespace-nowrap px-3 py-1.5 rounded-full glass-panel text-xs font-medium text-white/80">
-                            {item.name}
-                          </span>
+              {([1, 2, 3] as const).map((ringId) => {
+                const items = byRing(ringId);
+                const { radius, size } = RING_CONFIG[ringId];
+                return (
+                  <div
+                    key={ringId}
+                    data-ring={ringId}
+                    className={`absolute rounded-full border border-white/10 ${size}`}
+                  >
+                    {items.map((item, i) => {
+                      const angle = (360 / items.length) * i;
+                      return (
+                        <div
+                          key={item.name}
+                          data-chip
+                          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                          style={{
+                            transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`,
+                          }}
+                        >
+                          <div data-chip-inner>
+                            <span className="whitespace-nowrap px-3 py-1.5 rounded-full glass-panel text-xs font-medium text-white/80">
+                              {item.name}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
+                      );
+                    })}
+                    
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

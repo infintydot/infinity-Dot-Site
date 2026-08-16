@@ -98,13 +98,13 @@ export default function AdvancedScrollHero() {
         </div>
 
         {/* Header Nav */}
-        <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none mix-blend-difference">
+        {/* <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none mix-blend-difference">
           <span className="nav-element font-bold text-xl tracking-tight">infinity.</span>
           <div className="nav-element flex gap-2 items-center text-sm font-mono uppercase tracking-widest">
             <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
             System Active
           </div>
-        </div>
+        </div> */}
 
         {/* 3D Perspective Container */}
         <div className="relative w-full h-full flex items-center justify-center perspective-[1000px]">
