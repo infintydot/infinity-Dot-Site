@@ -43,7 +43,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.3} className="mt-12 flex flex-col gap-6">
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-white/5 text-primary">
+              <div className="p-3 rounded-xl bg-white/30 text-primary">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-white/5 text-secondary">
+              <div className="p-3 rounded-xl bg-white/30 text-secondary">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
@@ -102,7 +102,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group self-start px-8 py-4 rounded-full bg-primary hover:bg-primary/90 disabled:opacity-60 text-white font-semibold flex items-center gap-2 transition-all"
+                    className="group self-start px-8 py-4 rounded-full bg-primary hover:bg-primary/90 disabled:opacity-60 text-black! font-semibold flex items-center gap-2 transition-all"
                   >
                     {loading ? "Sending..." : "Send message"}
                     {!loading && (

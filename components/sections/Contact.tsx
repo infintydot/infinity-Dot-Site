@@ -31,7 +31,7 @@ export default function Contact() {
         <Reveal delay={0.3}>
           <Link
             href="/contact"
-            className="group relative px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-white font-semibold flex items-center gap-2 transition-all"
+            className="group relative px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-black font-semibold flex items-center gap-2 transition-all"
           >
             Get in touch
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

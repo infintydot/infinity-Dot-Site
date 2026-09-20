@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image"; // Added Image import for the logo
 
 const NAV_LINKS = [
   { label: "Services", href: "/#services" },
@@ -44,15 +45,15 @@ export default function Navbar() {
           isScrolled || mobileOpen ? "glass-panel" : "bg-transparent"
         }`}
       >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group" onClick={() => setMobileOpen(false)}>
-          <div className="w-8 h-8 rounded bg-primary flex items-center justify-center relative overflow-hidden">
-            <span className="text-white font-display font-bold text-lg leading-none absolute z-10">∞</span>
-            <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-white">
-            Infinity<span className="text-primary">.</span>
-          </span>
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center group" onClick={() => setMobileOpen(false)}>
+          <Image 
+            src="/InfinityDot_logo_transparent.png" /* <-- REPLACE THIS WITH YOUR LOGO PATH */
+            alt="Logo"
+            width={120} 
+            height={120}
+            className="object-contain"
+          />
         </Link>
 
         {/* Desktop Links */}

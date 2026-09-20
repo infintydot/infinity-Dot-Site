@@ -1,5 +1,9 @@
+"use client"; // Make sure to include this if you are using useState in Next.js App Router!
+
 import Link from "next/link";
+import Image from "next/image"; // <-- Added missing Image import
 import { SiGithub, SiLinkerd, SiX } from "@icons-pack/react-simple-icons";
+import { useState } from "react";
 
 const columns = [
   {
@@ -21,20 +25,21 @@ const columns = [
 ];
 
 export default function Footer() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  
   return (
     <footer className="relative w-full border-t border-white/10 px-6 md:px-12 py-16">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="max-w-xs">
-            <Link href="/" className="flex items-center gap-2 group w-fit">
-              <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
-                <span className="text-white font-display font-bold text-lg leading-none">
-                  ∞
-                </span>
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight text-white">
-                Infinity<span className="text-primary">.</span>
-              </span>
+            <Link href="/" className="flex items-center group" onClick={() => setMobileOpen(false)}>
+              <Image 
+                src="/InfinityDot_logo_transparent.png" 
+                alt="Logo"
+                width={120} 
+                height={120}
+                className="object-contain"
+              />
             </Link>
             <p className="mt-4 text-sm text-white/40 font-light leading-relaxed">
               A software company building web apps, mobile apps, and SaaS
