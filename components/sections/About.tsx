@@ -56,6 +56,7 @@ export default function About() {
       tl.to(track, {
         xPercent: -75,
         ease: "none",
+        duration: 0.1,
       });
 
       // 2. Parallax Animations while scrolling
@@ -88,7 +89,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={triggerRef} id="company" className="relative w-full h-[400vh] bg-[#050505] text-white">
+    <section ref={triggerRef} id="company" className="relative w-full h-[700vh] bg-[#050505] text-white">
       
       {/* Sticky Viewport */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center">
@@ -126,7 +127,6 @@ export default function About() {
           <div className="relative w-screen h-full flex items-center justify-center px-10 md:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full max-w-7xl">
               <div>
-                <span className="text-white/40 font-mono text-sm tracking-widest uppercase mb-4 block">01 // Project</span>
                 <h3 className="text-4xl md:text-6xl font-bold mb-6">EdTech Core</h3>
                 <p className="text-lg text-white/60 font-light leading-relaxed max-w-md">
                   A comprehensive management and learning architecture designed to handle the complex infrastructure of modern educational institutes. 
@@ -172,13 +172,6 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="order-1 lg:order-2">
-                <span className="text-cyan-400/60 font-mono text-sm tracking-widest uppercase mb-4 block">02 // Project</span>
-                <h3 className="text-4xl md:text-6xl font-bold mb-6">Smart Purifier IoT</h3>
-                <p className="text-lg text-white/60 font-light leading-relaxed max-w-md">
-                  Bridging physical hardware and digital software. An IoT ecosystem tracking water purity, filter lifespans, and real-time device health directly to the user's mobile app.
-                </p>
-              </div>
             </div>
           </div>
 
@@ -186,7 +179,6 @@ export default function About() {
           <div className="relative w-screen h-full flex items-center justify-center px-10 md:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full max-w-7xl">
               <div>
-                <span className="text-purple-400/60 font-mono text-sm tracking-widest uppercase mb-4 block">03 // In Development</span>
                 <h3 className="text-4xl md:text-6xl font-bold mb-6">Autonomous Voice AI</h3>
                 <p className="text-lg text-white/60 font-light leading-relaxed max-w-md mb-8">
                   Training custom AI agents to handle human-like phone conversations, automate client call-handling, and intelligently schedule interviews without human intervention.

@@ -48,7 +48,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <div className="text-white text-sm font-semibold">Email</div>
-                <div className="text-white/50 text-sm">hello@infinitydot.dev</div>
+                <div className="text-white/50 text-sm">info@infinitydot.in</div>
               </div>
             </div>
             <div className="flex items-center gap-4">

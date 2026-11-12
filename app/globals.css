@@ -181,3 +181,12 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+
+html {
+  scrollbar-width: none; /* Firefox, and newer Chrome and Edge */
+  -ms-overflow-style: none; /* older Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Safari and older Chrome */
+}

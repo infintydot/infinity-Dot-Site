@@ -2,27 +2,37 @@
 
 import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.9, // was 1.2 — shorter tail so it stops "dragging" after you stop scrolling
-      easing: (t) => 1 - Math.pow(1 - t, 3), // ease-out-cubic — snappier stop than the old expo curve
+      duration: 0.9, // shorter tail so it stops "dragging" after you stop scrolling
+      easing: (t) => 1 - Math.pow(1 - t, 3), // ease-out-cubic
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.2, // slightly faster per wheel notch
+      wheelMultiplier: 0.2, // lower this to 1 if scrolling still feels too fast
       touchMultiplier: 2,
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // 1. Tell ScrollTrigger every time Lenis moves the page
+    lenis.on("scroll", ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    // 2. Let GSAP's ticker drive Lenis, so both run on the same clock
+    //    (this replaces the separate requestAnimationFrame loop)
+    const tick = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(tick);
+
+    // 3. Don't let GSAP skip frames after a lag spike, which would
+    //    make scroll-linked animations jump
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
+      gsap.ticker.remove(tick);
       lenis.destroy();
     };
   }, []);

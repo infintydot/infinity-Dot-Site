@@ -134,50 +134,54 @@ export interface Project {
   category: string;
   description: string;
   tags: string[];
+  status: "Live" | "In Progress";
 }
 
 export const projects: Project[] = [
   {
-    slug: "orbitpay",
-    title: "OrbitPay",
-    category: "SaaS / Fintech",
-    description: "A multi-tenant billing and invoicing platform processing 6-figure monthly volume.",
-    tags: ["Next.js", "Stripe", "PostgreSQL"],
+    slug: "tenses-edu-solutions",
+    title: "Tenses Edu Solutions",
+    category: "Education",
+    description:
+      "An education website plus a CRM web app that tracks students and teachers day to day: attendance in/out, fees, salary and more, with separate dashboards for each role.",
+    tags: ["CRM", "Attendance", "Fees & Salary", "Role-based Access"],
+    status: "Live",
   },
   {
-    slug: "fielddesk",
-    title: "FieldDesk",
-    category: "Mobile",
-    description: "Offline-first field service app for technicians, syncing across 400+ devices.",
-    tags: ["React Native", "GraphQL"],
+    slug: "sathya-construction",
+    title: "Sathya Construction",
+    category: "Construction",
+    description:
+      "A clean, modern company website for a Bangalore-based construction firm, designed to showcase their work and build trust with clients.",
+    tags: ["Website", "UI/UX", "Bangalore"],
+    status: "Live",
   },
   {
-    slug: "loop-crm",
-    title: "Loop CRM",
-    category: "Web Application",
-    description: "A custom CRM replacing three disconnected tools for a 60-person sales org.",
-    tags: ["React", "Node.js", "Redis"],
+    slug: "e-waste-transportation",
+    title: "E-Waste Transportation Platform",
+    category: "Logistics",
+    description:
+      "A website and a fleet web app for an e-waste transport company, with live GPS tracking and fuel monitoring for every lorry, plus salary and expense management.",
+    tags: ["GPS Tracking", "Fuel Monitoring", "Fleet Management", "Expense Tracking"],
+    status: "In Progress",
   },
   {
-    slug: "aviato-ai",
-    title: "Aviato AI",
-    category: "AI / SaaS",
-    description: "An AI copilot embedded into an existing product, cutting support tickets by 40%.",
-    tags: ["LLM", "Vector Search", "Next.js"],
+    slug: "voice-ai-interview-assistant",
+    title: "Voice AI Interview Assistant",
+    category: "Own Product",
+    description:
+      "Our in-house product with voice integration that automatically picks up calls and schedules interviews, with no manual follow-ups.",
+    tags: ["Voice AI", "Auto Call Pickup", "Interview Scheduling"],
+    status: "In Progress",
   },
   {
-    slug: "northline",
-    title: "Northline",
-    category: "Web Application",
-    description: "Logistics dashboard visualizing live fleet data across 12 regional hubs.",
-    tags: ["TypeScript", "WebSockets"],
-  },
-  {
-    slug: "pulseboard",
-    title: "Pulseboard",
-    category: "SaaS",
-    description: "Analytics platform for e-commerce brands, from schema to shipped dashboard in 9 weeks.",
-    tags: ["Next.js", "AWS", "Docker"],
+    slug: "car-wash-crm",
+    title: "Car Wash CRM & Booking",
+    category: "Own Product",
+    description:
+      "Our in-house CRM and online booking web app for car wash and vehicle service businesses to manage customers, bookings and services in one place.",
+    tags: ["CRM", "Online Booking", "Service Management"],
+    status: "In Progress",
   },
 ];
 

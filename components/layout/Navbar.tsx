@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Technologies", href: "/#technologies" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
-  { label: "Company", href: "/#company" },
+  { label: "Company", href: "/company" },
 ];
 
 export default function Navbar() {
