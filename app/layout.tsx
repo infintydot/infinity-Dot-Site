@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("scroll-smooth", "font-sans", geist.variable)}>
+    <html lang="en" className={cn( "font-sans", geist.variable)}>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} font-sans bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white`}
       >

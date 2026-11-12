@@ -15,7 +15,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 0.2, // lower this to 1 if scrolling still feels too fast
+      wheelMultiplier: 1, // lower this to 1 if scrolling still feels too fast
       touchMultiplier: 2,
     });
 

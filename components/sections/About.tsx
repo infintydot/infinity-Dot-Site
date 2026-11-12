@@ -56,7 +56,7 @@ export default function About() {
       tl.to(track, {
         xPercent: -75,
         ease: "none",
-        duration: 0.1,
+        duration: 1,
       });
 
       // 2. Parallax Animations while scrolling
@@ -89,7 +89,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={triggerRef} id="company" className="relative w-full h-[700vh] bg-[#050505] text-white">
+    <section ref={triggerRef} id="company" className="relative w-full h-[900vh] bg-[#050505] text-white">
       
       {/* Sticky Viewport */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center">
